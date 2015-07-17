@@ -3,26 +3,21 @@ package framgiavn.project01.web.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	private int user_id;
+	private int userId;
 	private String username;
 	private String password;
 	private String email;
 	private String avatar;
-
 	private boolean isAdmin;
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {

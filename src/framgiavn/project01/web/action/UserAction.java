@@ -31,7 +31,7 @@ public class UserAction extends ActionSupport {
 
 	public String findByUserId() {
 		try {
-			user = userBusiness.findByUserId(user.getUser_id());
+			user = userBusiness.findByUserId(user.getUserId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,8 +48,6 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String homePage() {
-		System.out
-				.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		return SUCCESS;
 	}
 
