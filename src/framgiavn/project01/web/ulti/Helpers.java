@@ -57,9 +57,6 @@ public final class Helpers {
 		try {
 			String configPath = System.getProperty("configPath");
 			File file = new File(configPath + File.separator + propertyFileName);
-			System.out
-					.println("####################################################### "
-							+ configPath);
 			is = new FileInputStream(file);
 
 			if (is == null) {
