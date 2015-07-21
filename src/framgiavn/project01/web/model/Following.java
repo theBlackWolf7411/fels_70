@@ -3,7 +3,6 @@ package framgiavn.project01.web.model;
 import java.io.Serializable;
 
 public class Following implements Serializable{
-    private static final long serialVersionUID = 1L;
     private int followingUser;
     private int followedUser;
 

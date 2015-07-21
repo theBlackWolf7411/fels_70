@@ -3,7 +3,6 @@ package framgiavn.project01.web.model;
 import java.io.Serializable;
 
 public class Activity implements Serializable {
-    private static final long serialVersionUID = 1L;
     private int activityId;
     private int userId;
     private int targetId;

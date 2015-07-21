@@ -6,34 +6,36 @@ import framgiavn.project01.web.model.User;
 
 public class UserBusinessImpl implements UserBusiness {
 
-	private UserDAO userDAO;
+    private UserDAO userDAO;
 
-	public UserDAO getUserDAO() {
-		return userDAO;
-	}
+    public UserDAO getUserDAO() {
+        return userDAO;
+    }
 
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
-	@Override
-	public User findByUserId(Integer user_id) throws Exception {
-		try {
-			return getUserDAO().findByUserId(user_id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
-	}
+    @Override
+    public User findByUserId(Integer user_id) throws Exception {
+        try {
+            return getUserDAO().findByUserId(user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 
-	@Override
-	public User findByUsername(String username) throws Exception {
-		try {
-			return getUserDAO().findByUsername(username);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
-	}
-
+    public User login(String username, String password) throws Exception {
+        try {
+            User user = getUserDAO().findByUsername(username);
+            if (user != null && user.getPassword().equals(password))
+                return user;
+            else
+                return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
