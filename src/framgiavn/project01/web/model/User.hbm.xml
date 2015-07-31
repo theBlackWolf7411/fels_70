@@ -33,7 +33,13 @@
 	<query name="User.SelectUserByUserId">
 		select user
 		from User user
-		where user.user_id =
-		:user_id
+		where user.userId =
+		:userId
+	</query>
+	<query name="User.FindByUsername">
+		select user
+		from User user
+		where user.username =
+		:username
 	</query>
 </hibernate-mapping>

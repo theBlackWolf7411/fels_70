@@ -1,3 +1,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<a href="<s:url value="/user/findByUserId"/>1">Show</a>
-<a href="<s:url value="/user/findByUsername"/>manh">Find by name</a>
+<h1>Welcome to our system</h1>
+<s:if test="#session.logined == 'true'">
+<a href="<s:url value="/user/"/><s:property value="user.userId"/>">User 's page</a>
+</s:if>
+<s:else>
+<a href="<s:url value="/login"/>">Login</a>
+</s:else>
