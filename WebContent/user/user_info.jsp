@@ -3,6 +3,6 @@
 <a>Welcome, <s:property value="#session.username"/>!</a>
 </s:if>
 <br/>
-<s:property value="user.email" />
+<s:property value="user.email"/>
 ___
 <s:property value="user.username" />

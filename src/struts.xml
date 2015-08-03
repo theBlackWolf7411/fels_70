@@ -4,7 +4,6 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
 	<!-- Define default-web package: struts-default -->
 	<package name="default-web" namespace="/" extends="json-default">
 
@@ -29,9 +28,16 @@
 			<result>HomePage</result>
 		</action>
 
+		<action name="login" class="springSessionAction" method="login">
+			<result name="success" type="redirect">/users/${user.userId}</result>
+			<result name="error">Login</result>
+		</action>
+
+		<action name="logout" class="springSessionAction" method="logout">
+			<result name="success" type="redirect">/</result>
+		</action>
 	</package>
 
 	<!-- ===== Include Web Module Configuration ===== -->
 	<include file="struts-user.xml" />
-	<include file="struts-login.xml" />
 </struts>

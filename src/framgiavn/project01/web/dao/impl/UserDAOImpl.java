@@ -1,5 +1,7 @@
 package framgiavn.project01.web.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -17,16 +19,16 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
         // Do nothing
     }
 
-    public User findByUserId(Integer user_id) throws Exception {
-        return findByUserId(user_id, false);
+    public User findByUserId(Integer userId) throws Exception {
+        return findByUserId(userId, false);
     }
 
-    public User findByUserId(Integer user_id, boolean lock) throws Exception {
+    public User findByUserId(Integer userId, boolean lock) throws Exception {
         try {
             Query query = getSession().getNamedQuery("User.SelectUserByUserId");
             if (lock)
                 query.setLockMode("User", LockMode.UPGRADE);
-            query.setParameter("user_id", user_id);
+            query.setParameter("userId", userId);
             return (User) query.uniqueResult();
         } catch (RuntimeException re) {
             log.error("get failed", re);
@@ -43,5 +45,17 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
             log.error("get failed", re);
             throw re;
         }
+    }
+
+    @Override
+    public List<User> selectAllUser() {
+        try {
+            Query query = getSession().getNamedQuery("User.SelectAllUser");
+            return query.list();
+        }catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+        
     }
 }

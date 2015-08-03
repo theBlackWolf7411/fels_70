@@ -1,5 +1,7 @@
 package framgiavn.project01.web.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.UserBusiness;
@@ -16,6 +18,15 @@ public class UserAction extends ActionSupport {
 
     private UserBusiness userBusiness = null;
     private User user = null;
+    private List<User> users = new ArrayList<User>();
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public void setUserBusiness(UserBusiness userBusiness) {
         this.userBusiness = userBusiness;
@@ -32,6 +43,15 @@ public class UserAction extends ActionSupport {
     public String findByUserId() {
         try {
             user = userBusiness.findByUserId(user.getUserId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String showAllUser() {
+        try {
+            users = userBusiness.selectAllUser();
         } catch (Exception e) {
             e.printStackTrace();
         }
