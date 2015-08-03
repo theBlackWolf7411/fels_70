@@ -6,18 +6,16 @@
 <struts>
 
 	<!-- Configure NameSpace for action web -->
-	<package name="User" namespace="/user" extends="default-web">
-		<action name="findByUserId*" class="springUserAction" method="findByUserId">
-			<param name="user.user_id">{1}</param>
+	<package name="User" namespace="/users" extends="default-web">
+		<action name="/*" class="springUserAction" method="findByUserId">
+			<param name="user.userId">{1}</param>
 			<result name="success">User.Info</result>
-			<result name="input">User.Info</result>
-			<result name="error">User.Info</result>
+			<result name="error">Homepage</result>
 		</action>
 
-		<action name="findByUsername*" class="springUserAction" method="findByUsername">
-			<param name="user.username">{1}</param>
-			<result name="success">User.Info</result>
-			<result name="error">User.Info</result>
+		<action name="" class="springUserAction" method="showAllUser">
+			<result name="success">User.All</result>
+			<result name="error">Homepage</result>
 		</action>
 	</package>
 </struts>

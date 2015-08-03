@@ -45,6 +45,7 @@ public class SessionAction extends ActionSupport implements SessionAware {
 
     public String logout() {
         session.remove("username");
+        session.remove("logined");
         session.clear();
         addActionMessage("You Have Been Successfully Logged Out");
         return SUCCESS;

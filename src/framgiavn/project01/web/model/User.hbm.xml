@@ -42,4 +42,8 @@
 		where user.username =
 		:username
 	</query>
+	<query name="User.SelectAllUser">
+		select user
+		from User user
+	</query>
 </hibernate-mapping>
