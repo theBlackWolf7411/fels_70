@@ -11,7 +11,6 @@ import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.Logit2;
 
 public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
-
     private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
     public static final String NAME = "customerName";
 
@@ -47,7 +46,6 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
         }
     }
 
-    @Override
     public List<User> selectAllUser() {
         try {
             Query query = getSession().getNamedQuery("User.SelectAllUser");
@@ -56,6 +54,5 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
             log.error("get failed", re);
             throw re;
         }
-        
     }
 }

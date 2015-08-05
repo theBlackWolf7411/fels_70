@@ -43,8 +43,7 @@ public class UserBusinessImpl implements UserBusiness {
 
     public List<User> selectAllUser() throws Exception {
         try {
-            List<User> users = getUserDAO().selectAllUser();
-            return users;
+            return getUserDAO().selectAllUser();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
