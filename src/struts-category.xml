@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- Configure NameSpace for action web -->
+	<package name="Category" namespace="/categories" extends="default-web">
+		<action name="{categoryId}/show" class="springCategoryAction" method="show">
+			<param name="category.categoryId">{1}</param>
+			<result name="success">Category.Show</result>
+			<result name="error">Homepage</result>
+		</action>
+
+		<action name="" class="springCategoryAction" method="index">
+			<result name="success">Category.Index</result>
+			<result name="error">Homepage</result>
+		</action>
+
+		<action name="create" class="springCategoryAction" method="create">
+			<result name="success" type="redirect">/categories</result>
+			<result name="error">Homepage</result>
+		</action>
+
+		<action name="new" class="springCategoryAction" method="newCategory">
+			<result name="success">Category.New</result>
+		</action>
+
+		<action name="{categoryId}/edit" class="springCategoryAction" method="edit">
+			<param name="category.categoryId">{1}</param>
+			<result name="success">Category.Edit</result>
+			<result name="error">Homepage</result>
+		</action>
+
+		<action name="update" class="springCategoryAction" method="update">
+			<result name="success" type="redirect">
+				<param name="location">/categories</param>
+			</result>
+			<result name="error">Homepage</result>
+		</action>
+		
+		<action name="{categoryId}/destroy" class="springCategoryAction" method="destroy">
+			<param name="category.categoryId">{1}</param>
+			<result name="success" type="redirect">
+				<param name="location">/categories</param>
+			</result>
+			<result name="error">Homepage</result>
+		</action>
+	</package>
+</struts>

@@ -5,8 +5,24 @@ import java.io.Serializable;
 public class Category implements Serializable {
     private int categoryId;
     private String categoryName;
-    private String describe;
-    private String categoryPicture;
+    private String description;
+    private String picture;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public int getCategoryId() {
         return categoryId;
@@ -22,21 +38,5 @@ public class Category implements Serializable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    public String getDescribe() {
-        return describe;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
-    }
-
-    public String getCategoryPicture() {
-        return categoryPicture;
-    }
-
-    public void setCategoryPicture(String categoryPicture) {
-        this.categoryPicture = categoryPicture;
     }
 }
