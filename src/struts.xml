@@ -32,9 +32,16 @@
 			<result>HomePage</result>
 		</action>
 
-		<action name="login" class="springSessionAction" method="login">
-			<result name="success" type="redirect">/users/${user.userId}</result>
-			<result name="error">Login</result>
+		<action name="login" class="springSessionAction" method="newSession">
+			<result name="success">Login</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="log" class="springSessionAction" method="login">
+			<result name="success" type="redirect">/users/${user.userId}/show
+			</result>
+			<result name="error" type="redirect">/login</result>
+			<result name="none" type="redirect">/</result>
 		</action>
 
 		<action name="logout" class="springSessionAction" method="logout">
@@ -43,6 +50,7 @@
 	</package>
 
 	<!-- ===== Include Web Module Configuration ===== -->
+	<include file="struts-admin.xml" />
 	<include file="struts-user.xml" />
 	<include file="struts-category.xml" />
 </struts>

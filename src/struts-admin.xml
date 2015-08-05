@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="AdminUser" namespace="/admin/users" extends="default-web">
+		<action name="{userId}/show" class="springAdminUserAction" method="show">
+			<param name="user.userId">{1}</param>
+			<result name="success">AdminUser.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springAdminUserAction" method="index">
+			<result name="success">AdminUser.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
+
+	<package name="AdminCategory" namespace="/admin/categories"
+		extends="default-web">
+		<action name="{categoryId}/show" class="springAdminCategoryAction"
+			method="show">
+			<param name="category.categoryId">{1}</param>
+			<result name="success">AdminCategory.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springAdminCategoryAction" method="index">
+			<result name="success">AdminCategory.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="create" class="springAdminCategoryAction" method="create">
+			<result name="success" type="redirect">/admin/categories</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="new" class="springAdminCategoryAction" method="newCategory">
+			<result name="success">AdminCategory.New</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{categoryId}/edit" class="springAdminCategoryAction"
+			method="edit">
+			<param name="category.categoryId">{1}</param>
+			<result name="success">AdminCategory.Edit</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="update" class="springAdminCategoryAction" method="update">
+			<result name="success" type="redirect">/admin/categories/${category.categoryId}/show
+			</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{categoryId}/destroy" class="springAdminCategoryAction"
+			method="destroy">
+			<param name="category.categoryId">{1}</param>
+			<result name="success" type="redirect"> /admin/categories</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
+</struts>

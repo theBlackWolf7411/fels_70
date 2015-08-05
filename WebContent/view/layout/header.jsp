@@ -8,15 +8,4 @@
 <div id="top-header"></div>
 
 <div id="bottom-header">
-	<s:if test="#session.logined == 'true'">
-		<a
-			href="<s:url value="/users/"/>
-		<s:property value="user.userId"/>">
-			<s:property value="user.username" />
-		</a>
-		<a href="<s:url value="/logout"/>">Log out</a>
-	</s:if>
-	<s:else>
-		<a href="<s:url value="/login"/>">Login</a>
-	</s:else>
 </div>
