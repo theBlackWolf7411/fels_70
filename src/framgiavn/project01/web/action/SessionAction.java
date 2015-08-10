@@ -3,7 +3,6 @@ package framgiavn.project01.web.action;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.UserBusiness;
@@ -26,6 +25,10 @@ public class SessionAction extends ActionSupport implements SessionAware {
         this.user = user;
     }
 
+    public String newSession() {
+        return SUCCESS;
+    }
+
     public String login() {
         try {
             user = userBusiness.login(user.getUsername(), user.getPassword());
@@ -33,19 +36,20 @@ public class SessionAction extends ActionSupport implements SessionAware {
             e.printStackTrace();
         }
         if (user != null) {
-            session.put("logined", "true");
+            session.put("logged", "true");
+            session.put("userId", user.getUserId());
             session.put("username", user.getUsername());
             return SUCCESS;
         } else {
-            session.put("logined", "false");
             addActionError("Please Enter Valid Username and Password");
             return ERROR;
         }
     }
 
     public String logout() {
+        session.remove("userId");
         session.remove("username");
-        session.remove("logined");
+        session.remove("logged");
         session.clear();
         addActionMessage("You Have Been Successfully Logged Out");
         return SUCCESS;

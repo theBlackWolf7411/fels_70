@@ -7,15 +7,15 @@
 
 	<!-- Configure NameSpace for action web -->
 	<package name="User" namespace="/users" extends="default-web">
-		<action name="/*" class="springUserAction" method="findByUserId">
+		<action name="{userId}/show" class="springUserAction" method="show">
 			<param name="user.userId">{1}</param>
-			<result name="success">User.Info</result>
-			<result name="error">Homepage</result>
+			<result name="success">User.Show</result>
+			<result name="error" type="redirect">/</result>
 		</action>
 
-		<action name="" class="springUserAction" method="showAllUser">
-			<result name="success">User.All</result>
-			<result name="error">Homepage</result>
+		<action name="" class="springUserAction" method="index">
+			<result name="success">User.Index</result>
+			<result name="error" type="redirect">/</result>
 		</action>
 	</package>
 </struts>

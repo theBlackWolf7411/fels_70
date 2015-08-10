@@ -4,28 +4,28 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
 	<definition name="Category.Show" extends="Default.Web">
-		<put-attribute name="body" value="/categories/show.jsp" />
+		<put-attribute name="body" value="/view/categories/show.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
 	<definition name="Category.Index" extends="Default.Web">
-		<put-attribute name="body" value="/categories/index.jsp" />
+		<put-attribute name="body" value="/view/categories/index.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
 	<definition name="Category.New" extends="Default.Web">
-		<put-attribute name="body" value="/categories/new.jsp" />
+		<put-attribute name="body" value="/view/categories/new.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
 	<definition name="Category.Edit" extends="Default.Web">
-		<put-attribute name="body" value="/categories/edit.jsp" />
+		<put-attribute name="body" value="/view/categories/edit.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">

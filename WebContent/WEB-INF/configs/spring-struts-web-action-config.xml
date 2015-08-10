@@ -8,12 +8,22 @@
 		scope="prototype">
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
-	
+
+	<bean id="springAdminUserAction" class="framgiavn.project01.web.action.admin.UserAction"
+		scope="prototype">
+		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
 	<bean id="springCategoryAction" class="framgiavn.project01.web.action.CategoryAction"
 		scope="prototype">
 		<property name="categoryBusiness" ref="CategoryBusiness" />
 	</bean>
-	
+
+	<bean id="springAdminCategoryAction" class="framgiavn.project01.web.action.admin.CategoryAction"
+		scope="prototype">
+		<property name="categoryBusiness" ref="CategoryBusiness" />
+	</bean>
+
 	<bean id="springSessionAction" class="framgiavn.project01.web.action.SessionAction"
 		scope="prototype">
 		<property name="userBusiness" ref="UserBusiness" />

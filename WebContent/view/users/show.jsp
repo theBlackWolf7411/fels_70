@@ -6,3 +6,5 @@
 <s:property value="user.email"/>
 ___
 <s:property value="user.username" />
+___
+<s:property value="user.isAdmin" />

@@ -1,6 +1,5 @@
-package framgiavn.project01.web.action;
+package framgiavn.project01.web.action.admin;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +10,13 @@ import framgiavn.project01.web.model.User;
 
 public class UserAction extends ActionSupport {
     // private Logit2 log = Logit2.getInstance(UserAction.class);
-
-    private UserBusiness userBusiness = null;
     private User user = null;
     private List<User> users = new ArrayList<User>();
+    private UserBusiness userBusiness = null;
+
+    public void setUserBusiness(UserBusiness userBusiness) {
+        this.userBusiness = userBusiness;
+    }
 
     public List<User> getUsers() {
         return users;
@@ -22,10 +24,6 @@ public class UserAction extends ActionSupport {
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }
-
-    public void setUserBusiness(UserBusiness userBusiness) {
-        this.userBusiness = userBusiness;
     }
 
     public User getUser() {
