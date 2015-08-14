@@ -1,10 +1,6 @@
 package framgiavn.project01.web.business.impl;
 
 import java.util.List;
-import java.util.Map;
-
-import com.opensymphony.xwork2.ActionContext;
-
 import framgiavn.project01.web.business.UserBusiness;
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
@@ -12,7 +8,6 @@ import framgiavn.project01.web.model.User;
 public class UserBusinessImpl implements UserBusiness {
 
     private UserDAO userDAO;
-    private Map<String, Object> session;
 
     public UserDAO getUserDAO() {
         return userDAO;
@@ -23,9 +18,9 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public User findByUserId(Integer userId) throws Exception {
+    public User show(Integer userId) throws Exception {
         try {
-            return getUserDAO().findByUserId(userId);
+            return getUserDAO().show(userId);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -47,17 +42,12 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public List<User> selectAllUser() throws Exception {
+    public List<User> index() throws Exception {
         try {
-            return getUserDAO().selectAllUser();
+            return getUserDAO().index();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
-    }
-
-    @Override
-    public void accessSession() {
-        session = ActionContext.getContext().getSession();
     }
 }

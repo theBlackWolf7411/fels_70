@@ -6,7 +6,6 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.CategoryBusiness;
-import framgiavn.project01.web.business.UserBusiness;
 import framgiavn.project01.web.model.Category;
 
 public class CategoryAction extends ActionSupport {
@@ -36,7 +35,7 @@ public class CategoryAction extends ActionSupport {
 
     public String index() {
         try {
-            categories = categoryBusiness.selectAllUser();
+            categories = categoryBusiness.index();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,7 +44,7 @@ public class CategoryAction extends ActionSupport {
 
     public String show() {
         try {
-            category = categoryBusiness.findByCategoryId(category
+            category = categoryBusiness.show(category
                     .getCategoryId());
         } catch (Exception e) {
             e.printStackTrace();

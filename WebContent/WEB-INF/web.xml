@@ -42,6 +42,7 @@
         	,/WEB-INF/configs/tiles-defs-user.xml
         	,/WEB-INF/configs/tiles-defs-category.xml
         	,/WEB-INF/configs/tiles-defs-admin.xml
+        	,/WEB-INF/configs/tiles-defs-word.xml
         </param-value>
 	</context-param>
 	<!-- Define Tiles configuration files -->

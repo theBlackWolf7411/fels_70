@@ -5,7 +5,8 @@
 
 <struts>
 	<package name="AdminUser" namespace="/admin/users" extends="default-web">
-		<action name="{userId}/show" class="springAdminUserAction" method="show">
+		<action name="{userId}/show" class="springAdminUserAction"
+			method="show">
 			<param name="user.userId">{1}</param>
 			<result name="success">AdminUser.Show</result>
 			<result name="error" type="redirect">/</result>
@@ -32,7 +33,7 @@
 		</action>
 
 		<action name="create" class="springAdminCategoryAction" method="create">
-			<result name="success" type="redirect">/admin/categories</result>
+			<result name="success" type="redirect">/admin/categories/</result>
 			<result name="error" type="redirect">/</result>
 		</action>
 
@@ -57,7 +58,51 @@
 		<action name="{categoryId}/destroy" class="springAdminCategoryAction"
 			method="destroy">
 			<param name="category.categoryId">{1}</param>
-			<result name="success" type="redirect"> /admin/categories</result>
+			<result name="success" type="redirect"> /admin/categories/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
+
+	<package name="AdminWord" namespace="/admin/words" extends="default-web">
+		<action name="{wordId}/show" class="springAdminWordAction"
+			method="show">
+			<param name="word.wordId">{1}</param>
+			<result name="success">AdminWord.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springAdminWordAction" method="index">
+			<result name="success">AdminWord.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="create" class="springAdminWordAction" method="create">
+			<result name="success" type="redirect">/admin/words/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="new" class="springAdminWordAction" method="newWord">
+			<result name="success">AdminWord.New</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{wordId}/edit" class="springAdminWordAction"
+			method="edit">
+			<param name="word.wordId">{1}</param>
+			<result name="success">AdminWord.Edit</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="update" class="springAdminWordAction" method="update">
+			<result name="success" type="redirect">/admin/words/${word.wordId}/show
+			</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{wordId}/destroy" class="springAdminWordAction"
+			method="destroy">
+			<param name="word.wordId">{1}</param>
+			<result name="success" type="redirect"> /admin/words/</result>
 			<result name="error" type="redirect">/</result>
 		</action>
 	</package>

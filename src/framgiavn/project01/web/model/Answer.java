@@ -4,9 +4,17 @@ import java.io.Serializable;
 
 public class Answer implements Serializable {
     private int answerId;
-    private int wordId;
     private String answerContent;
     private boolean isCorrect;
+    private Word word;
+
+    public Word getWord() {
+        return word;
+    }
+
+    public void setWord(Word word) {
+        this.word = word;
+    }
 
     public int getAnswerId() {
         return answerId;
@@ -14,14 +22,6 @@ public class Answer implements Serializable {
 
     public void setAnswerId(int answerId) {
         this.answerId = answerId;
-    }
-
-    public int getWordId() {
-        return wordId;
-    }
-
-    public void setWordId(int wordId) {
-        this.wordId = wordId;
     }
 
     public String getAnswerContent() {
@@ -32,11 +32,11 @@ public class Answer implements Serializable {
         this.answerContent = answerContent;
     }
 
-    public boolean isCorrect() {
+    public boolean getIsCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(boolean isCorrect) {
+    public void setIsCorrect(boolean isCorrect) {
         this.isCorrect = isCorrect;
     }
 }

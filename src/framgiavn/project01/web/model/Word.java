@@ -1,12 +1,22 @@
 package framgiavn.project01.web.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Word implements Serializable {
     private int wordId;
-    private int categoryId;
+    private Category category;
     private String wordContent;
     private String audio;
+    private List<Answer> answers;
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     public int getWordId() {
         return wordId;
@@ -14,14 +24,6 @@ public class Word implements Serializable {
 
     public void setWordId(int wordId) {
         this.wordId = wordId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public String getWordContent() {
@@ -38,5 +40,13 @@ public class Word implements Serializable {
 
     public void setAudio(String audio) {
         this.audio = audio;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

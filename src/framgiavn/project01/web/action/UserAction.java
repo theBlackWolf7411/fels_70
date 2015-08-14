@@ -38,7 +38,7 @@ public class UserAction extends ActionSupport {
 
     public String show() {
         try {
-            user = userBusiness.findByUserId(user.getUserId());
+            user = userBusiness.show(user.getUserId());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class UserAction extends ActionSupport {
 
     public String index() {
         try {
-            users = userBusiness.selectAllUser();
+            users = userBusiness.index();
         } catch (Exception e) {
             e.printStackTrace();
         }

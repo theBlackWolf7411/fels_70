@@ -7,12 +7,16 @@
 		dynamic-insert="true" dynamic-update="true">
 		<id name="wordId" type="java.lang.Integer">
 			<column name="word_id" length="10" />
-			<generator class="assigned" />
+			<generator class="native" />
 		</id>
 
-		<property name="categoryId" type="java.lang.Integer">
-			<column name="category_id" length="10" />
-		</property>
+		<many-to-one name="category" column="category_id"
+			fetch="join" />
+
+		<bag name="answers" lazy="false" cascade="all">
+			<key column="word_id" />
+			<one-to-many class="framgiavn.project01.web.model.Answer" />
+		</bag>
 
 		<property name="wordContent" type="java.lang.String">
 			<column name="word_content" length="60" />
@@ -22,4 +26,14 @@
 			<column name="audio" length="255" />
 		</property>
 	</class>
+	<query name="Word.SelectWordByWordId">
+		select word
+		from Word word
+		where word.wordId =
+		:wordId
+	</query>
+	<query name="Word.SelectAllWord">
+		select word
+		from Word word
+	</query>
 </hibernate-mapping>
