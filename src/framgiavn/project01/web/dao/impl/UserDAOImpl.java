@@ -18,11 +18,11 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
         // Do nothing
     }
 
-    public User findByUserId(Integer userId) throws Exception {
-        return findByUserId(userId, false);
+    public User show(Integer userId) throws Exception {
+        return show(userId, false);
     }
 
-    public User findByUserId(Integer userId, boolean lock) throws Exception {
+    public User show(Integer userId, boolean lock) throws Exception {
         try {
             Query query = getSession().getNamedQuery("User.SelectUserByUserId");
             if (lock)
@@ -46,7 +46,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
         }
     }
 
-    public List<User> selectAllUser() {
+    public List<User> index() {
         try {
             Query query = getSession().getNamedQuery("User.SelectAllUser");
             return query.list();

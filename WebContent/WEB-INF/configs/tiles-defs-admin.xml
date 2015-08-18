@@ -48,4 +48,34 @@
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
+	
+	<!-- Word -->
+	<definition name="AdminWord.Show" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/words/show.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminWord.Index" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/words/index.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminWord.New" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/words/new.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminWord.Edit" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/words/edit.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- Configure NameSpace for action web -->
+	<package name="Word" namespace="/words" extends="default-web">
+		<action name="{wordId}/show" class="springWordAction"
+			method="show">
+			<param name="word.wordId">{1}</param>
+			<result name="success">Word.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springWordAction" method="index">
+			<result name="success">Word.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
+</struts>

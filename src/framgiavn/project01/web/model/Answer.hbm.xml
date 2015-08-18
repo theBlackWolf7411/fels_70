@@ -7,12 +7,11 @@
 		dynamic-insert="true" dynamic-update="true">
 		<id name="answerId" type="java.lang.Integer">
 			<column name="answer_id" length="10" />
-			<generator class="assigned" />
+			<generator class="native" />
 		</id>
 
-		<property name="wordId" type="java.lang.Integer">
-			<column name="word_id" length="10" />
-		</property>
+		<many-to-one name="word" column="word_id"
+			fetch="join" />
 
 		<property name="answerContent" type="java.lang.String">
 			<column name="answer_content" length="255" />

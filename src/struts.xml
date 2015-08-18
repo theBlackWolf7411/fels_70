@@ -53,4 +53,5 @@
 	<include file="struts-admin.xml" />
 	<include file="struts-user.xml" />
 	<include file="struts-category.xml" />
+	<include file="struts-word.xml" />
 </struts>

@@ -23,4 +23,11 @@
 		</property>
 	</bean>
 
+	<bean id="WordBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.WordBusinessImpl">
+				<property name="wordDAO" ref="WordDAO" />
+			</bean>
+		</property>
+	</bean>
 </beans>

@@ -8,22 +8,23 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framgiavn.project01.web.dao.CategoryDAO;
 import framgiavn.project01.web.model.Category;
+import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.ulti.Logit2;
 
 public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO {
     private static final Logit2 log = Logit2.getInstance(CategoryDAOImpl.class);
 
     @Override
-    public Category findByCategoryId(int categoryId) {
-        return findByCategoryId(categoryId, false);
+    public Category show(int categoryId) {
+        return show(categoryId, false);
     }
 
-    public Category findByCategoryId(int categoryId, boolean lock) {
+    public Category show(int categoryId, boolean lock) {
         try {
             Query query = getSession().getNamedQuery(
                     "Category.SelectCategoryByCategoryId");
             if (lock)
-                query.setLockMode("User", LockMode.UPGRADE);
+                query.setLockMode("Category", LockMode.UPGRADE);
             query.setParameter("categoryId", categoryId);
             return (Category) query.uniqueResult();
         } catch (RuntimeException re) {
@@ -33,7 +34,7 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     }
 
     @Override
-    public List<Category> selectAllUser() {
+    public List<Category> index() {
         try {
             Query query = getSession().getNamedQuery(
                     "Category.SelectAllCategory");
@@ -47,6 +48,9 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     @Override
     public void create(Category category) {
         try {
+            for (Word word : category.getWords()) {
+                word.setCategory(category);
+            }
             getHibernateTemplate().save(category);
         } catch (RuntimeException re) {
             log.error("get failed", re);
@@ -56,7 +60,7 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     @Override
     public void update(Category category) {
         try {
-            getHibernateTemplate().update(category);
+            getHibernateTemplate().saveOrUpdate(category);
         } catch (RuntimeException re) {
             log.error("get failed", re);
         }

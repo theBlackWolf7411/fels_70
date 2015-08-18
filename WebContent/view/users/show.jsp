@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<a href="<s:url value="/users/"/>">Back</a>
 <s:if test="#session.username != null">
 <a>Welcome, <s:property value="#session.username"/>!</a>
 </s:if>
