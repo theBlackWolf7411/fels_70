@@ -10,4 +10,10 @@ public interface UserDAO {
     public User findByUsername(String username) throws Exception;
 
     public List<User> index() throws Exception;
+    
+    public void create(User user) throws Exception;
+    
+    public void update(User user) throws Exception;
+    
+    public void destroy(User user) throws Exception;
 }

@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h1>User</h1>
+<a href="<s:url value="/admin/users/new"/>">Create a new account</a>
 <table>
 	<tr>
 		<td>Id</td>
@@ -8,12 +8,30 @@
 		<td>Email</td>
 		<td>Avatar</td>
 	</tr>
-	<c:forEach items="${users}" var="user">
+	<s:iterator value="users">
 		<tr>
-			<td>${user.userId}</td>
-			<td>${user.username}</td>
-			<td>${user.email}</td>
-			<td>${user.avatar}</td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/show">
+					<s:property value="userId" />
+			</a></td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/show">
+					<s:property value="username" />
+			</a></td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/show">
+					<s:property value="email" />
+			</a></td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/show">
+					<s:property value="avatar" />
+			</a></td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/edit">
+					Edit </a></td>
+			<td><a
+				href="<s:url value="/admin/users/"/><s:property value="userId"/>/destroy">
+					Delete </a></td>
 		</tr>
-	</c:forEach>
+	</s:iterator>
 </table>

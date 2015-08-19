@@ -4,9 +4,17 @@ import java.io.Serializable;
 
 public class Activity implements Serializable {
     private int activityId;
-    private int userId;
+    private User user;
     private int targetId;
-    private int type;
+    private String type;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getActivityId() {
         return activityId;
@@ -14,14 +22,6 @@ public class Activity implements Serializable {
 
     public void setActivityId(int activityId) {
         this.activityId = activityId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getTargetId() {
@@ -32,11 +32,11 @@ public class Activity implements Serializable {
         this.targetId = targetId;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

@@ -21,7 +21,7 @@
 		<td><s:property value="category.picture" /></td>
 	</tr>
 </table>
-<h1>Words</h1>
+<s:label>Words</s:label>
 <table>
 	<tr>
 		<td>Word</td>

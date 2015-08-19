@@ -7,19 +7,17 @@
 		dynamic-insert="true" dynamic-update="true">
 		<id name="activityId" type="java.lang.Integer">
 			<column name="activity_id" length="10" />
-			<generator class="assigned" />
+			<generator class="native" />
 		</id>
 
-		<property name="userId" type="java.lang.Integer">
-			<column name="user_id" length="10" />
-		</property>
+		<many-to-one name="user" column="user_id" fetch="join" />
 
 		<property name="targetId" type="java.lang.Integer">
 			<column name="target_id" length="10" />
 		</property>
-		
-		<property name="type" type="java.lang.Integer">
-			<column name="type" length="10" />
+
+		<property name="type" type="java.lang.String">
+			<column name="type" length="255" />
 		</property>
 	</class>
 </hibernate-mapping>

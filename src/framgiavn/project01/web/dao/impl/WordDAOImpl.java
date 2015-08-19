@@ -35,9 +35,10 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
     @Override
     public void create(Word word) {
         try {
-            for (Answer answer : word.getAnswers()) {
-                answer.setWord(word);
-            }
+            if (word.getAnswers() != null)
+                for (Answer answer : word.getAnswers()) {
+                    answer.setWord(word);
+                }
             getHibernateTemplate().save(word);
         } catch (RuntimeException re) {
             log.error("get failed", re);
@@ -48,9 +49,10 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
     @Override
     public void update(Word word) {
         try {
-            for (Answer answer : word.getAnswers()) {
-                answer.setWord(word);
-            }
+            if (word.getAnswers() != null)
+                for (Answer answer : word.getAnswers()) {
+                    answer.setWord(word);
+                }
             getHibernateTemplate().update(word);
         } catch (RuntimeException re) {
             log.error("get failed", re);

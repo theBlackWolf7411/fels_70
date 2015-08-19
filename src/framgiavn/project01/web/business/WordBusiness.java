@@ -6,14 +6,14 @@ import framgiavn.project01.web.model.Word;
 
 public interface WordBusiness {
 
-    List<Word> index() throws Exception;
+    public List<Word> index() throws Exception;
 
-    Word show(int wordId) throws Exception;
+    public Word show(int wordId) throws Exception;
 
-    void create(Word word) throws Exception;
+    public void create(Word word) throws Exception;
 
-    void update(Word word) throws Exception;
+    public void update(Word word) throws Exception;
 
-    void destroy(Word word) throws Exception;
+    public void destroy(Word word) throws Exception;
 
 }
