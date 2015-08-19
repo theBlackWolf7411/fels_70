@@ -4,9 +4,25 @@ import java.io.Serializable;
 
 public class Lesson implements Serializable {
     private int lessonId;
-    private int categoryId;
-    private int userId;
+    private Category category;
+    private User user;
     private int result;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getLessonId() {
         return lessonId;
@@ -14,22 +30,6 @@ public class Lesson implements Serializable {
 
     public void setLessonId(int lessonId) {
         this.lessonId = lessonId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getResult() {

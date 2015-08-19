@@ -10,16 +10,25 @@
 			<generator class="assigned" />
 		</id>
 
-		<property name="categoryId" type="java.lang.Integer">
-			<column name="category_id" length="10" />
-		</property>
+		<many-to-one name="category" column="category_id" lazy="false"
+			fetch="join" />
 
-		<property name="userId" type="java.lang.Integer">
-			<column name="user_id" length="10" />
-		</property>
+		<many-to-one name="user" column="user_id" lazy="false"
+			fetch="join" />
 
 		<property name="result" type="java.lang.Integer">
 			<column name="result" length="10" />
 		</property>
 	</class>
+	<query name="Lesson.SelectLessonByLessonId">
+		select lesson
+		from Lesson lesson
+		where
+		lesson.lessonId =
+		:lessonId
+	</query>
+	<query name="Lesson.SelectAllLesson">
+		select lesson
+		from Lesson lesson
+	</query>
 </hibernate-mapping>

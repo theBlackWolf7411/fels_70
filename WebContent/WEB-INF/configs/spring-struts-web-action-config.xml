@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
+	<!-- User -->
 	<bean id="springUserAction" class="framgiavn.project01.web.action.UserAction"
 		scope="prototype">
 		<property name="userBusiness" ref="UserBusiness" />
@@ -14,6 +15,7 @@
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
 
+	<!-- Category -->
 	<bean id="springCategoryAction" class="framgiavn.project01.web.action.CategoryAction"
 		scope="prototype">
 		<property name="categoryBusiness" ref="CategoryBusiness" />
@@ -24,6 +26,7 @@
 		<property name="categoryBusiness" ref="CategoryBusiness" />
 	</bean>
 
+	<!-- Word -->
 	<bean id="springWordAction" class="framgiavn.project01.web.action.WordAction"
 		scope="prototype">
 		<property name="wordBusiness" ref="WordBusiness" />
@@ -35,6 +38,22 @@
 		<property name="categoryBusiness" ref="CategoryBusiness" />
 	</bean>
 
+	<!-- Lesson -->
+	<bean id="springLessonAction" class="framgiavn.project01.web.action.LessonAction"
+		scope="prototype">
+		<property name="lessonBusiness" ref="LessonBusiness" />
+		<property name="categoryBusiness" ref="CategoryBusiness" />
+		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
+	<bean id="springAdminLessonAction" class="framgiavn.project01.web.action.admin.LessonAction"
+		scope="prototype">
+		<property name="lessonBusiness" ref="LessonBusiness" />
+		<property name="categoryBusiness" ref="CategoryBusiness" />
+		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
+	<!-- Session -->
 	<bean id="springSessionAction" class="framgiavn.project01.web.action.SessionAction"
 		scope="prototype">
 		<property name="userBusiness" ref="UserBusiness" />

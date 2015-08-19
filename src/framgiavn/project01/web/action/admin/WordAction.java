@@ -43,7 +43,7 @@ public class WordAction extends ActionSupport {
 
     public String index() {
         try {
-            words = wordBusiness.index();
+            words = wordBusiness.selectAllWord();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ public class WordAction extends ActionSupport {
 
     public String show() {
         try {
-            word = wordBusiness.show(word.getWordId());
+            word = wordBusiness.findWord(word.getWordId());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class WordAction extends ActionSupport {
             answers.add(null);
             answers.add(null);
             word.setAnswers(answers);
-            categories = categoryBusiness.index();
+            categories = categoryBusiness.selectAllCategory();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,8 +86,8 @@ public class WordAction extends ActionSupport {
 
     public String edit() {
         try {
-            word = wordBusiness.show(word.getWordId());
-            categories = categoryBusiness.index();
+            word = wordBusiness.findWord(word.getWordId());
+            categories = categoryBusiness.selectAllCategory();
         } catch (Exception e) {
             e.printStackTrace();
         }

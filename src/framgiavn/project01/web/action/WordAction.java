@@ -35,7 +35,7 @@ public class WordAction extends ActionSupport {
 
     public String index() {
         try {
-            words = wordBusiness.index();
+            words = wordBusiness.selectAllWord();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public class WordAction extends ActionSupport {
 
     public String show() {
         try {
-            word = wordBusiness.show(word.getWordId());
+            word = wordBusiness.findWord(word.getWordId());
         } catch (Exception e) {
             e.printStackTrace();
         }

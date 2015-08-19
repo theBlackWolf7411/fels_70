@@ -18,9 +18,9 @@ public class CategoryBusinessImpl implements CategoryBusiness {
     }
 
     @Override
-    public Category show(int categoryId) throws Exception {
+    public Category findCategory(int categoryId) throws Exception {
         try {
-            return getCategoryDAO().show(categoryId);
+            return getCategoryDAO().findCategory(categoryId);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -28,9 +28,9 @@ public class CategoryBusinessImpl implements CategoryBusiness {
     }
 
     @Override
-    public List<Category> index() throws Exception {
+    public List<Category> selectAllCategory() throws Exception {
         try {
-            return getCategoryDAO().index();
+            return getCategoryDAO().selectAllCategory();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

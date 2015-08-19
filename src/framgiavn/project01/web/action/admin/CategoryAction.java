@@ -36,7 +36,7 @@ public class CategoryAction extends ActionSupport {
 
     public String index() {
         try {
-            categories = categoryBusiness.index();
+            categories = categoryBusiness.selectAllCategory();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,7 +45,7 @@ public class CategoryAction extends ActionSupport {
 
     public String show() {
         try {
-            category = categoryBusiness.show(category
+            category = categoryBusiness.findCategory(category
                     .getCategoryId());
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class CategoryAction extends ActionSupport {
 
     public String edit() {
         try {
-            category = categoryBusiness.show(category
+            category = categoryBusiness.findCategory(category
                     .getCategoryId());
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class CategoryAction extends ActionSupport {
 
     public String destroy() {
         try {
-            categoryBusiness.destroy(categoryBusiness.show(category
+            categoryBusiness.destroy(categoryBusiness.findCategory(category
                     .getCategoryId()));
         } catch (Exception e) {
             e.printStackTrace();

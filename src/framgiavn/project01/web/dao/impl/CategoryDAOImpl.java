@@ -15,11 +15,11 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     private static final Logit2 log = Logit2.getInstance(CategoryDAOImpl.class);
 
     @Override
-    public Category show(int categoryId) {
-        return show(categoryId, false);
+    public Category findCategory(int categoryId) {
+        return findCategory(categoryId, false);
     }
 
-    public Category show(int categoryId, boolean lock) {
+    public Category findCategory(int categoryId, boolean lock) {
         try {
             Query query = getSession().getNamedQuery(
                     "Category.SelectCategoryByCategoryId");
@@ -34,7 +34,7 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     }
 
     @Override
-    public List<Category> index() {
+    public List<Category> selectAllCategory() {
         try {
             Query query = getSession().getNamedQuery(
                     "Category.SelectAllCategory");

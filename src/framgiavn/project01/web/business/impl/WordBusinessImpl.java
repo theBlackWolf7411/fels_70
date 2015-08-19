@@ -18,9 +18,9 @@ public class WordBusinessImpl implements WordBusiness {
     }
 
     @Override
-    public List<Word> index() throws Exception {
+    public List<Word> selectAllWord() throws Exception {
         try {
-            return getWordDAO().index();
+            return getWordDAO().selectAllWord();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -28,9 +28,9 @@ public class WordBusinessImpl implements WordBusiness {
     }
 
     @Override
-    public Word show(int wordId) throws Exception {
+    public Word findWord(int wordId) throws Exception {
         try {
-            return getWordDAO().show(wordId);
+            return getWordDAO().findWord(wordId);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

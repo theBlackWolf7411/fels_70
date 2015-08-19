@@ -19,9 +19,9 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public User show(Integer userId) throws Exception {
+    public User findUser(Integer userId) throws Exception {
         try {
-            return getUserDAO().show(userId);
+            return getUserDAO().findUser(userId);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -43,9 +43,9 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public List<User> index() throws Exception {
+    public List<User> selectAllUser() throws Exception {
         try {
-            return getUserDAO().index();
+            return getUserDAO().selectAllUser();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

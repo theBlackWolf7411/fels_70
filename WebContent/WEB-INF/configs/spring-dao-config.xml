@@ -20,4 +20,10 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	<bean id="LessonDAO" class="framgiavn.project01.web.dao.impl.LessonDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 </beans>
