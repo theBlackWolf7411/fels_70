@@ -52,7 +52,43 @@ public class UserAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public String homePage() {
+    public String newUser() {
+        return SUCCESS;
+    }
+
+    public String create() {
+        try {
+            userBusiness.create(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String edit() {
+        try {
+            user = userBusiness.show(user.getUserId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String update() {
+        try {
+            userBusiness.update(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String destroy() {
+        try {
+            userBusiness.destroy(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return SUCCESS;
     }
 }

@@ -48,9 +48,10 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
     @Override
     public void create(Category category) {
         try {
-            for (Word word : category.getWords()) {
-                word.setCategory(category);
-            }
+            if (category.getWords() != null)
+                for (Word word : category.getWords()) {
+                    word.setCategory(category);
+                }
             getHibernateTemplate().save(category);
         } catch (RuntimeException re) {
             log.error("get failed", re);

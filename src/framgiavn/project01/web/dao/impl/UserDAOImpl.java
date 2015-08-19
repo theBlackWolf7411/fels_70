@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framgiavn.project01.web.dao.UserDAO;
+import framgiavn.project01.web.model.Answer;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.Logit2;
 
@@ -50,7 +51,37 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
         try {
             Query query = getSession().getNamedQuery("User.SelectAllUser");
             return query.list();
-        }catch (RuntimeException re) {
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+
+    @Override
+    public void create(User user) throws Exception {
+        try {
+            getHibernateTemplate().save(user);
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+
+    @Override
+    public void update(User user) throws Exception {
+        try {
+            getHibernateTemplate().update(user);
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+
+    @Override
+    public void destroy(User user) throws Exception {
+        try {
+            getHibernateTemplate().delete(user);
+        } catch (RuntimeException re) {
             log.error("get failed", re);
             throw re;
         }

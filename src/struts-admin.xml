@@ -4,6 +4,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+<!-- ######################## User ###########################-->
 	<package name="AdminUser" namespace="/admin/users" extends="default-web">
 		<action name="{userId}/show" class="springAdminUserAction"
 			method="show">
@@ -16,8 +17,39 @@
 			<result name="success">AdminUser.Index</result>
 			<result name="error" type="redirect">/</result>
 		</action>
+		
+		<action name="create" class="springAdminUserAction" method="create">
+			<result name="success" type="redirect">/admin/users/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="new" class="springAdminUserAction" method="newUser">
+			<result name="success">AdminUser.New</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{userId}/edit" class="springAdminUserAction"
+			method="edit">
+			<param name="user.userId">{1}</param>
+			<result name="success">AdminUser.Edit</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="update" class="springAdminUserAction" method="update">
+			<result name="success" type="redirect">/admin/users/${user.userId}/show
+			</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{userId}/destroy" class="springAdminUserAction"
+			method="destroy">
+			<param name="user.userId">{1}</param>
+			<result name="success" type="redirect"> /admin/users/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
 	</package>
 
+<!-- ######################## Category ###########################-->
 	<package name="AdminCategory" namespace="/admin/categories"
 		extends="default-web">
 		<action name="{categoryId}/show" class="springAdminCategoryAction"
@@ -63,6 +95,7 @@
 		</action>
 	</package>
 
+<!-- ######################## Word ###########################-->
 	<package name="AdminWord" namespace="/admin/words" extends="default-web">
 		<action name="{wordId}/show" class="springAdminWordAction"
 			method="show">

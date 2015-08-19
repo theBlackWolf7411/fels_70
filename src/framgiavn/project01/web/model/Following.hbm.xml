@@ -6,20 +6,14 @@
 	<class name="framgiavn.project01.web.model.Following" table="following"
 		dynamic-insert="true" dynamic-update="true">
 		<id name="id" type="java.lang.Integer">
-			<generator class="assigned" />
+			<column name="following_id" />
+			<generator class="native" />
 		</id>
-		<property name="followingUser" type="java.lang.Integer">
-			<column name="following_user" length="10" />
-		</property>
 
-		<property name="followedUser" type="java.lang.Integer">
-			<column name="followed_user" length="10" />
-		</property>
+		<many-to-one name="followingUser" column="following_user"
+			fetch="join" />
+
+		<many-to-one name="followedUser" column="followed_user"
+			fetch="join" />
 	</class>
-	<query name="Following.SelectFollowedUserByUserId">
-		select followed_user
-		form Follwing follwing
-		where following.following_id =
-		:following_id
-	</query>
 </hibernate-mapping>
