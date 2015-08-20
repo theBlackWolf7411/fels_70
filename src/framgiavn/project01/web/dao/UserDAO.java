@@ -5,11 +5,11 @@ import java.util.List;
 import framgiavn.project01.web.model.User;
 
 public interface UserDAO {
-    public User show(Integer userId) throws Exception;
+    public User findUser(Integer userId) throws Exception;
 
     public User findByUsername(String username) throws Exception;
 
-    public List<User> index() throws Exception;
+    public List<User> selectAllUser() throws Exception;
     
     public void create(User user) throws Exception;
     

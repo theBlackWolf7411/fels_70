@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- Configure NameSpace for action web -->
+	<package name="Lesson" namespace="/lessons" extends="default-web">
+		<action name="{lessonId}/show" class="springLessonAction"
+			method="show">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success">Lesson.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springLessonAction" method="index">
+			<result name="success">Lesson.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="create" class="springLessonAction" method="create">
+			<result name="success" type="redirect">/lessons/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="new" class="springLessonAction" method="newLesson">
+			<result name="success">Lesson.New</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{lessonId}/edit" class="springLessonAction"
+			method="edit">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success">Lesson.Edit</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="update" class="springLessonAction" method="update">
+			<result name="success" type="redirect">/lessons/${lesson.lessonId}/show
+			</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{lessonId}/destroy" class="springLessonAction"
+			method="destroy">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success" type="redirect">/lessons/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
+</struts>

@@ -92,4 +92,34 @@
 		<put-list-attribute name="css">
 		</put-list-attribute>
 	</definition>
+	
+	<!-- Lesson -->
+	<definition name="AdminLesson.Show" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/lessons/show.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminLesson.Index" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/lessons/index.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminLesson.New" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/lessons/new.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="AdminLesson.Edit" extends="Default.Web">
+		<put-attribute name="body" value="/view/admin/lessons/edit.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

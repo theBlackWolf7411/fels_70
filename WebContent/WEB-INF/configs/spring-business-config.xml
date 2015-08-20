@@ -30,4 +30,12 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="LessonBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.LessonBusinessImpl">
+				<property name="lessonDAO" ref="LessonDAO" />
+			</bean>
+		</property>
+	</bean>
 </beans>

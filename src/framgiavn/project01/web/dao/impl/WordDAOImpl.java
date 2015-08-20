@@ -15,11 +15,11 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
     private static final Logit2 log = Logit2.getInstance(WordDAOImpl.class);
 
     @Override
-    public Word show(int wordId) {
-        return show(wordId, false);
+    public Word findWord(int wordId) {
+        return findWord(wordId, false);
     }
 
-    public Word show(int wordId, boolean lock) {
+    public Word findWord(int wordId, boolean lock) {
         try {
             Query query = getSession().getNamedQuery("Word.SelectWordByWordId");
             if (lock)
@@ -71,7 +71,7 @@ public class WordDAOImpl extends HibernateDaoSupport implements WordDAO {
     }
 
     @Override
-    public List<Word> index() {
+    public List<Word> selectAllWord() {
         try {
             return getSession().getNamedQuery("Word.SelectAllWord").list();
         } catch (RuntimeException re) {

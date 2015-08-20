@@ -139,4 +139,49 @@
 			<result name="error" type="redirect">/</result>
 		</action>
 	</package>
+	
+	<!-- ######################  Lesson ######################### -->
+	<package name="AdminLesson" namespace="/admin/lessons" extends="default-web">
+		<action name="{lessonId}/show" class="springAdminLessonAction"
+			method="show">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success">AdminLesson.Show</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="" class="springAdminLessonAction" method="index">
+			<result name="success">AdminLesson.Index</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="create" class="springAdminLessonAction" method="create">
+			<result name="success" type="redirect">/admin/lessons/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="new" class="springAdminLessonAction" method="newLesson">
+			<result name="success">AdminLesson.New</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{lessonId}/edit" class="springAdminLessonAction"
+			method="edit">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success">AdminLesson.Edit</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="update" class="springAdminLessonAction" method="update">
+			<result name="success" type="redirect">/admin/lessons/${lesson.lessonId}/show
+			</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+
+		<action name="{lessonId}/destroy" class="springAdminLessonAction"
+			method="destroy">
+			<param name="lesson.lessonId">{1}</param>
+			<result name="success" type="redirect">/admin/lessons/</result>
+			<result name="error" type="redirect">/</result>
+		</action>
+	</package>
 </struts>
