@@ -1,5 +1,6 @@
 package framgiavn.project01.web.action.admin;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,15 @@ public class UserAction extends ActionSupport {
     private User user = null;
     private List<User> users = new ArrayList<User>();
     private UserBusiness userBusiness = null;
+    private File fileUpload;
+
+    public File getFileUpload() {
+        return fileUpload;
+    }
+
+    public void setFileUpload(File fileUpload) {
+        this.fileUpload = fileUpload;
+    }
 
     public void setUserBusiness(UserBusiness userBusiness) {
         this.userBusiness = userBusiness;
@@ -58,7 +68,7 @@ public class UserAction extends ActionSupport {
 
     public String create() {
         try {
-            userBusiness.create(user);
+            userBusiness.create(user, fileUpload);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,7 +86,7 @@ public class UserAction extends ActionSupport {
 
     public String update() {
         try {
-            userBusiness.update(user);
+            userBusiness.update(user, fileUpload);
         } catch (Exception e) {
             e.printStackTrace();
         }

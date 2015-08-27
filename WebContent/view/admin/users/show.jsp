@@ -4,6 +4,10 @@
 	<a>Welcome, <s:property value="#session.username" />!
 	</a>
 </s:if>
+<br/>
+<img
+	src="<s:url value="http://localhost:8080/fels_70-images/images/User"/><s:property value="user.userId" />.jpg"
+	border="0" height="120" width="150">
 <h1>
 	User
 	<s:property value="user.username" />
