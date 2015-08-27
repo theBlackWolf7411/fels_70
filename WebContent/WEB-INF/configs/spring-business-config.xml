@@ -11,6 +11,7 @@
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.UserBusinessImpl">
 				<property name="userDAO" ref="UserDAO" />
+				<property name="fileDAO" ref="FileDAO" />
 			</bean>
 		</property>
 	</bean>
@@ -30,7 +31,7 @@
 			</bean>
 		</property>
 	</bean>
-	
+
 	<bean id="LessonBusiness" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.LessonBusinessImpl">

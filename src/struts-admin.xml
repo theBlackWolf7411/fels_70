@@ -4,7 +4,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-<!-- ######################## User ###########################-->
+	<!-- ######################## User ########################### -->
 	<package name="AdminUser" namespace="/admin/users" extends="default-web">
 		<action name="{userId}/show" class="springAdminUserAction"
 			method="show">
@@ -17,7 +17,7 @@
 			<result name="success">AdminUser.Index</result>
 			<result name="error" type="redirect">/</result>
 		</action>
-		
+
 		<action name="create" class="springAdminUserAction" method="create">
 			<result name="success" type="redirect">/admin/users/</result>
 			<result name="error" type="redirect">/</result>
@@ -49,7 +49,7 @@
 		</action>
 	</package>
 
-<!-- ######################## Category ###########################-->
+	<!-- ######################## Category ########################### -->
 	<package name="AdminCategory" namespace="/admin/categories"
 		extends="default-web">
 		<action name="{categoryId}/show" class="springAdminCategoryAction"
@@ -95,7 +95,7 @@
 		</action>
 	</package>
 
-<!-- ######################## Word ###########################-->
+	<!-- ######################## Word ########################### -->
 	<package name="AdminWord" namespace="/admin/words" extends="default-web">
 		<action name="{wordId}/show" class="springAdminWordAction"
 			method="show">
@@ -139,8 +139,8 @@
 			<result name="error" type="redirect">/</result>
 		</action>
 	</package>
-	
-	<!-- ######################  Lesson ######################### -->
+
+	<!-- ###################### Lesson ######################### -->
 	<package name="AdminLesson" namespace="/admin/lessons" extends="default-web">
 		<action name="{lessonId}/show" class="springAdminLessonAction"
 			method="show">

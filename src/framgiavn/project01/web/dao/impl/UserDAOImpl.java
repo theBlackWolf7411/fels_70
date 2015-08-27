@@ -1,13 +1,14 @@
 package framgiavn.project01.web.dao.impl;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framgiavn.project01.web.dao.UserDAO;
-import framgiavn.project01.web.model.Answer;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.Logit2;
 

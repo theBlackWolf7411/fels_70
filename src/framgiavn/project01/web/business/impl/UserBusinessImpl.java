@@ -1,14 +1,27 @@
 package framgiavn.project01.web.business.impl;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+
 import framgiavn.project01.web.business.UserBusiness;
+import framgiavn.project01.web.dao.FileDAO;
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
 
 public class UserBusinessImpl implements UserBusiness {
 
     private UserDAO userDAO;
+    private FileDAO fileDAO;
+
+    public FileDAO getFileDAO() {
+        return fileDAO;
+    }
+
+    public void setFileDAO(FileDAO fileDAO) {
+        this.fileDAO = fileDAO;
+    }
 
     public UserDAO getUserDAO() {
         return userDAO;
@@ -53,9 +66,14 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public void create(User user) throws Exception {
+    public void create(User user, File avatar) throws Exception {
         try {
             getUserDAO().create(user);
+            if (avatar != null) {
+                user.setAvatar("User" + user.getUserId() + ".jpg");
+                getFileDAO().saveImage(avatar, user.getAvatar());
+                getUserDAO().update(user);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -63,8 +81,12 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     @Override
-    public void update(User user) throws Exception {
+    public void update(User user, File avatar) throws Exception {
         try {
+            if (avatar != null) {
+                user.setAvatar("User" + user.getUserId() + ".jpg");
+                getFileDAO().saveImage(avatar, user.getAvatar());
+            }
             getUserDAO().update(user);
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,6 +98,7 @@ public class UserBusinessImpl implements UserBusiness {
     public void destroy(User user) throws Exception {
         try {
             getUserDAO().destroy(user);
+            getFileDAO().deleteImage(user.getAvatar());
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
