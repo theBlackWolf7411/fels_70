@@ -138,6 +138,21 @@
 			<result name="success" type="redirect"> /admin/words/</result>
 			<result name="error" type="redirect">/</result>
 		</action>
+		
+		<action name="import" class="springAdminWordAction"
+			method="uploadExcelFile">
+			<result name="success" type="redirect"> /admin/words/</result>
+		</action>
+		
+		<action name="export" class="springAdminWordAction"
+			method="exportDBToExcelFile">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+	  			<param name="inputName">fileInputStream</param>
+	  			<param name="contentDisposition">attachment;filename="exported_database.xls"</param>
+			</result>
+			
+		</action>
 	</package>
 
 	<!-- ###################### Lesson ######################### -->

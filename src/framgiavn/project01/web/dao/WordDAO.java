@@ -15,4 +15,5 @@ public interface WordDAO {
     public void destroy(Word word) throws Exception;
 
     public List<Word> selectAllWord() throws Exception;
+    
 }
